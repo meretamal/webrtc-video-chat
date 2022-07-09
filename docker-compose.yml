@@ -6,8 +6,15 @@ services:
     command: yarn start:dev
     volumes:
       - ./server:/usr/src/app
-      - node_modules:/usr/src/app/node_modules
+      - /usr/src/app/node_modules
     ports:
       - "8000:8000"
-volumes:
-  node_modules:
+  client:
+    container_name: client
+    build: ./client
+    command: yarn start:dev
+    volumes:
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"

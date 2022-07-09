@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  server:
+    container_name: server
+    build: ./server
+    command: yarn start:dev
+    volumes:
+      - ./server:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    ports:
+      - "8000:8000"
+volumes:
+  node_modules:

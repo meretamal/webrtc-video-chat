@@ -1,3 +1,7 @@
+<script lang="ts">
+  import Home from "./pages/Home.svelte";
+</script>
+
 <main>
-  <h1>Hello world</h1>
+  <Home />
 </main>

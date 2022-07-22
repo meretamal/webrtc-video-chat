@@ -1,5 +1,13 @@
 <script>
+  import { onMount } from "svelte";
+  import { navigate } from "svelte-navigator";
   import { username } from "../stores/session";
+
+  onMount(() => {
+    if (!$username) {
+      navigate("/", { replace: true });
+    }
+  });
 </script>
 
 <div class="container my-5">

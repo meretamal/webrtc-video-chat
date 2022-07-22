@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Home from "./pages/Home.svelte";
+  import Router from "./Router.svelte";
 </script>
 
 <main>
-  <Home />
+  <Router />
 </main>

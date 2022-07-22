@@ -1,4 +1,5 @@
 <script>
+  import { navigate } from "svelte-navigator";
   import { username } from "../stores/session";
 </script>
 
@@ -6,7 +7,7 @@
   class="container h-full is-flex is-flex-direction-column is-justify-content-center is-align-items-center"
 >
   <h1 class="has-text-centered is-size-1">Choose your username</h1>
-  <form class="w-80 my-5">
+  <form class="w-80 my-5" on:submit|preventDefault={() => navigate("/calls")}>
     <div class="field">
       <input
         type="text"

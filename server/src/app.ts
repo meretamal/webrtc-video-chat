@@ -27,5 +27,7 @@ io.on('connection', (socket) => {
       caller: username,
     };
     calls[id] = call;
+    socket.emit('call-joined', call);
+    socket.broadcast.emit('call-created', call);
   });
 });

@@ -15,7 +15,7 @@
     }
 
     socket.emit("request-calls");
-    socket.on("calls-sent", ({ calls: previousCalls }) => {
+    socket.on("calls-sent", ({ calls: previousCalls }: { calls: Call[] }) => {
       calls = previousCalls;
     });
     socket.on("call-joined", (call: Call) => {

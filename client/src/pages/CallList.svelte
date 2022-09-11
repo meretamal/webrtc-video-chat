@@ -5,6 +5,9 @@
   import { setCallInformation } from "../stores/call";
   import { socket } from "../services/socket";
   import type { Call } from "../interfaces/call";
+  import CallCard from "../components/CallCard.svelte";
+
+  let calls: Call[] = [];
 
   onMount(() => {
     if (!$username) {
@@ -14,6 +17,9 @@
     socket.on("call-joined", (call: Call) => {
       setCallInformation(call);
       navigate(`/calls/${call.id}`);
+    });
+    socket.on("call-created", (call: Call) => {
+      calls = [...calls, call];
     });
   });
 
@@ -33,4 +39,16 @@
       Start a new call
     </button>
   </div>
+  {#if calls.length > 0}
+    <div class="columns my-2 is-mobile is-multiline">
+      {#each calls as { id, caller } (id)}
+        <CallCard
+          {caller}
+          on:click={() => socket.emit("join-call", { id, callee: $username })}
+        />
+      {/each}
+    </div>
+  {:else}
+    <p class="is-size-5">No hay llamadas disponibles</p>
+  {/if}
 </div>

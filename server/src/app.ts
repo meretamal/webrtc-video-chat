@@ -19,6 +19,10 @@ const calls: Calls = {};
 io.on('connection', (socket) => {
   console.log(`Client ${socket.id} connected`);
 
+  socket.on('request-calls', () => {
+    socket.emit('calls-sent', { calls: Object.values(calls) });
+  });
+
   socket.on('create-call', ({ username }: { username: string }) => {
     const id = generateId();
     socket.join(id);

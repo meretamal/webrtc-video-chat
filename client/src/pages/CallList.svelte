@@ -14,6 +14,10 @@
       navigate("/", { replace: true });
     }
 
+    socket.emit("request-calls");
+    socket.on("calls-sent", ({ calls: previousCalls }) => {
+      calls = previousCalls;
+    });
     socket.on("call-joined", (call: Call) => {
       setCallInformation(call);
       navigate(`/calls/${call.id}`);

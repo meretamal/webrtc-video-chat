@@ -19,11 +19,6 @@ cd ../server
 yarn install
 ```
 
-Next, create a **.env** file in the client's directory:
-```bash
-cp .env.example .env
-````
-
 Now build the client and the server images:
 
 ```bash

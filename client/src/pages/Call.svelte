@@ -4,9 +4,18 @@
   import { onMount, onDestroy } from "svelte";
   import CallContainer from "../components/CallContainer.svelte";
   import { socket } from "../services/socket";
-  import { id, callee, ready, setCallInformation } from "../stores/call";
+  import {
+    id,
+    caller,
+    callee,
+    ready,
+    setCallInformation,
+  } from "../stores/call";
 
   onMount(() => {
+    if (!$id || !$caller) {
+      navigate("/calls", { replace: true });
+    }
     socket.on("call-joined", (call) => {
       setCallInformation(call);
       socket.emit("begin-call", { id: $id });

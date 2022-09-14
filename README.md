@@ -38,5 +38,6 @@ and visit http://localhost:3000/
 It might happen that the connection between the two devices won't stablish, so you might want to configure a [TURN server](https://webrtc.org/getting-started/turn-server).
 
 ## Documentation used for this project
-- [WebRTC](https://webrtc.org/)
+- [Socket.io](https://socket.io/)
 - [Svelte](https://svelte.dev/)
+- [WebRTC](https://webrtc.org/)

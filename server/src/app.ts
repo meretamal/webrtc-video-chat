@@ -43,4 +43,25 @@ io.on('connection', (socket) => {
     delete calls[id];
     io.emit('call-filled', { id });
   });
+
+  socket.on('begin-call', ({ id }) => {
+    io.to(id).emit('call-began');
+  });
+
+  socket.on('send-candidate', ({ id, candidate }) => {
+    socket.to(id).emit('candidate-sent', { candidate });
+  });
+
+  socket.on('create-offer', ({ id, offer }) => {
+    socket.to(id).emit('offer-sent', { offer });
+  });
+
+  socket.on('create-answer', ({ id, answer }) => {
+    socket.to(id).emit('answer-sent', { answer });
+  });
+
+  socket.on('end-call', ({ id }) => {
+    io.to(id).emit('call-ended');
+    io.socketsLeave(id);
+  });
 });

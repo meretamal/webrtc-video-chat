@@ -18,5 +18,7 @@ services:
       - /usr/src/app/node_modules
     ports:
       - "3000:3000"
+    environment:
+      - VITE_APP_SIGNALING_SERVER_URL=http://localhost:8000
     depends_on:
       - server

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { createEventDispatcher, onMount, onDestroy } from "svelte";
-  import { socket } from "../services/socket";
-  import { username } from "../stores/session";
-  import { id, caller, callee, ready } from "../stores/call";
+  import { socket } from "@/services/socket";
+  import { username } from "@/stores/session";
+  import { id, caller, callee, ready } from "@/stores/call";
 
   const dispatch = createEventDispatcher();
 

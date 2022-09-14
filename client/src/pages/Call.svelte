@@ -2,8 +2,8 @@
   import { SyncLoader } from "svelte-loading-spinners";
   import { navigate } from "svelte-navigator";
   import { onMount, onDestroy } from "svelte";
-  import CallContainer from "../components/CallContainer.svelte";
-  import { socket } from "../services/socket";
+  import CallContainer from "@/components/CallContainer.svelte";
+  import { socket } from "@/services/socket";
   import {
     id,
     caller,

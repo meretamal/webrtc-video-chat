@@ -1,6 +1,6 @@
 <script>
   import { navigate } from "svelte-navigator";
-  import { username } from "../stores/session";
+  import { username } from "@/stores/session";
 </script>
 
 <div

@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
   import { navigate } from "svelte-navigator";
-  import { username } from "../stores/session";
-  import { setCallInformation } from "../stores/call";
-  import { socket } from "../services/socket";
-  import type { Call } from "../interfaces/call";
-  import CallCard from "../components/CallCard.svelte";
+  import { username } from "@/stores/session";
+  import { setCallInformation } from "@/stores/call";
+  import { socket } from "@/services/socket";
+  import type { Call } from "@/interfaces/call";
+  import CallCard from "@/components/CallCard.svelte";
 
   let calls: Call[] = [];
 

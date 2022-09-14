@@ -25,7 +25,10 @@
     }
   ],
 	"settings": {
-		"svelte3/typescript": true
+		"svelte3/typescript": true,
+		"import/resolver": {
+			"typescript": {}
+		}
 	},
 	"rules": {
 		"import/prefer-default-export": "off",

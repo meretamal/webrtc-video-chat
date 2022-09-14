@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import type { Call } from 'src/interfaces/call';
+import type { Call } from '@/interfaces/call';
 
 export const id = writable<string>(null);
 export const caller = writable<string>(null);

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher, onMount } from "svelte";
+  import { createEventDispatcher, onMount, onDestroy } from "svelte";
   import { socket } from "../services/socket";
   import { username } from "../stores/session";
   import { id, caller, callee, ready } from "../stores/call";
@@ -120,6 +120,10 @@
       };
     }
   }
+
+  onDestroy(() => {
+    socket.removeAllListeners();
+  });
 </script>
 
 <div class="columns is-5">

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { SyncLoader } from "svelte-loading-spinners";
   import { navigate } from "svelte-navigator";
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import CallContainer from "../components/CallContainer.svelte";
   import { socket } from "../services/socket";
   import { id, callee, ready, setCallInformation } from "../stores/call";
@@ -11,6 +11,10 @@
       setCallInformation(call);
       socket.emit("begin-call", { id: $id });
     });
+  });
+
+  onDestroy(() => {
+    socket.removeAllListeners();
   });
 </script>
 

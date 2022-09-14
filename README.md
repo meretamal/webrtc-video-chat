@@ -28,7 +28,7 @@ docker compose build # docker-compose build
 Finally, run your app:
 
 ```bash
-docker compose up
+docker compose up # docker-compose up
 ```
 
 and visit http://localhost:3000/

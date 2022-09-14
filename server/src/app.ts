@@ -34,4 +34,13 @@ io.on('connection', (socket) => {
     socket.emit('call-joined', call);
     socket.broadcast.emit('call-created', call);
   });
+
+  socket.on('join-call', ({ id, callee }: { id: string, callee: string }) => {
+    socket.join(id);
+    const call = calls[id];
+    call.callee = callee;
+    io.to(id).emit('call-joined', call);
+    delete calls[id];
+    io.emit('call-filled', { id });
+  });
 });

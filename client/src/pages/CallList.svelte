@@ -25,7 +25,7 @@
     socket.on("call-created", (call: Call) => {
       calls = [...calls, call];
     });
-    socket.on("call-filled", ({ id }) => {
+    socket.on("call-filled", ({ id }: { id: string }) => {
       calls = calls.filter((call) => call.id !== id);
     });
   });

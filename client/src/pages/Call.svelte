@@ -4,13 +4,7 @@
   import { onMount, onDestroy } from "svelte";
   import CallContainer from "@/components/CallContainer.svelte";
   import { socket } from "@/services/socket";
-  import {
-    id,
-    caller,
-    callee,
-    ready,
-    setCallInformation,
-  } from "../stores/call";
+  import { id, caller, callee, ready, setCallInformation } from "@/stores/call";
 
   onMount(() => {
     if (!$id || !$caller) {

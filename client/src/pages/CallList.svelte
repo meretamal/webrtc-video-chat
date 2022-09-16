@@ -56,6 +56,6 @@
       {/each}
     </div>
   {:else}
-    <p class="is-size-5">No hay llamadas disponibles</p>
+    <p class="is-size-5">There are no available calls</p>
   {/if}
 </div>

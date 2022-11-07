@@ -4,7 +4,14 @@
   import { onMount, onDestroy } from "svelte";
   import CallContainer from "@/components/CallContainer.svelte";
   import { socket } from "@/services/socket";
-  import { id, caller, callee, ready, setCallInformation } from "@/stores/call";
+  import {
+    id,
+    caller,
+    callee,
+    ready,
+    setCallInformation,
+    resetCall,
+  } from "@/stores/call";
   import type { Call } from "@/interfaces/call";
 
   onMount(() => {
@@ -20,6 +27,11 @@
   onDestroy(() => {
     socket.removeAllListeners();
   });
+
+  const handleCallEnded = () => {
+    resetCall();
+    navigate("/calls");
+  };
 </script>
 
 <div
@@ -33,7 +45,7 @@
     {/if}
     <SyncLoader color="#23d160" />
   {/if}
-  <CallContainer on:call-ended={() => navigate("/calls")} />
+  <CallContainer on:call-ended={handleCallEnded} />
 </div>
 
 <style>

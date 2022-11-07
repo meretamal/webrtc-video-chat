@@ -11,3 +11,10 @@ export const setCallInformation = (data: Call) => {
   caller.set(data.caller);
   callee.set(data.callee);
 };
+
+export const resetCall = () => {
+  id.set(null);
+  caller.set(null);
+  callee.set(null);
+  ready.set(false);
+}
